@@ -110,6 +110,12 @@ var ctx = canvas.getContext("2d");
 var canvas2 = document.getElementById("map");
 var map = canvas2.getContext("2d");
 
+function successFunc(data) {
+	alert(JSON.stringify(data));
+}
+
+Sheetsu.read("https://sheetsu.com/apis/v1.0su/c7ff6b959a92",1,successFunc);
+
 function pick_start(){
   var test = random(123,676);
   if(save.world.Map[test].X_Cord == 0 || save.world.Map[test].X_Cord == 1 || save.world.Map[test].X_Cord == 2 || save.world.Map[test].X_Cord == 37 || save.world.Map[test].X_Cord == 38 || save.world.Map[test].X_Cord == 39){
