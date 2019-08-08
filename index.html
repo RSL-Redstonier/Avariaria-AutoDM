@@ -1,12 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
 <head>
+  <!-- Add Sheetsu Web Client script to the head -->
   <script src="//script.sheetsu.com/"></script>
 </head>
-<body>
-  <script>
-    function successFunc(data) {
-      alert("hi");
-    }
-    // Read whole spreadsheet
-    Sheetsu.read("https://sheetsu.com/apis/v1.0su/c7ff6b959a92", {}, successFunc);
-  </script>
-</body>
+
+<header>
+
+  <tr>
+    <td>
+      Arearia DM Tools Version 2.0
+    </td>
+  </tr>
+
+</header>
+
+<canvas id="c" width="1200" height="439">
+</canvas>
+
+<div id='info'>
+</div>
+
+		<table>
+			<tr>
+				<td>Filename to Save As:</td>
+				<td>
+					<input id="inputFileNameToSaveAs"></input>
+				</td>
+				<td>
+					<button onclick="save_file()">Save to File</button>
+				</td>
+			</tr>
+			<tr>
+				<td>Select a Save File to Load:</td>
+					<td>
+						<input type="file" id="fileToLoad">
+					</td>
+					<td>
+						<button onclick="load_file()">Load Selected Save File</button>
+					<td>
+			</tr>
+            <canvas id="map" width="1002" height="502" hidden></canvas>
+		</table>
+		<style>
+
+			canvas {
+			  background: #eee;
+			}
+			* {
+			  padding: 0:
+			  margin: 0;
+			  }
+			#info {
+			  position: absolute;
+			  top: 10px;
+			  right: 10px;
+			  background-color: black;
+			  color: white;
+			  padding: 25px 50px;
+			}
+
+
+
+		</style>
+		<script type="text/javascript" src="./save_variable.js"></script>
+		<script type="text/javascript" src="./main.js"></script>
+		<script type="text/javascript" src="./save.js"></script>
+		<script type="text/javascript" src="./load.js"></script>
+	</body>
+</html>
