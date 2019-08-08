@@ -448,9 +448,9 @@ function keyDownHandler(e){
   		}
     break;
     case 191:
-      var terminal = prompt("Command Line",command_log[(command_log.length - 1)]);
-  		command_log.push(terminal);
-  		eval(terminal);
+      var command_line = prompt("Command Line",command_log[(command_log.length - 1)]);
+  		command_log.push(command_line);
+  		eval(command_line);
     break;
     case 220:
       if (terminal === false){
