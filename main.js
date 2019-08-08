@@ -419,6 +419,7 @@ function map_tile(x,y,tile_num){
 //---------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------Cord Viewer + Terminal
 var cords = true;
+var terminal = false;
 var info = document.getElementById('info');
 var mouse = topLog;
 
@@ -434,6 +435,9 @@ function tellPos(p){
 }
 
 var command_log = t_md;
+function terminal(){
+  eval(String(document.getElementById('terminal').value));
+}
 function keyDownHandler(e){
   switch (e.keyCode) {
     case 67:
@@ -444,9 +448,18 @@ function keyDownHandler(e){
   		}
     break;
     case 191:
-      var terminal = prompt("Terminal",command_log[(command_log.length - 1)]);
+      var terminal = prompt("Command Line",command_log[(command_log.length - 1)]);
   		command_log.push(terminal);
   		eval(terminal);
+    break;
+    case 220:
+      if (terminal === false){
+  			terminal = true;
+        document.getElementById('terminal').hidden = false;
+  		}else{
+  			terminal = false;
+        document.getElementById('terminal').hidden = true;
+  		}
     break;
     case 32:
       //save.world.starting_tile = false;
