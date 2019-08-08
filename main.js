@@ -1204,8 +1204,10 @@ function on_frame(){
   }
 
   if(terminal){
+    document.getElementById('terminal_btn').hidden = false;
     document.getElementById('terminal').hidden = false;
   }else{
+    document.getElementById('terminal_btn').hidden = true;
     document.getElementById('terminal').hidden = true;
   }
 
