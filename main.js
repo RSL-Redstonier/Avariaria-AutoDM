@@ -419,7 +419,7 @@ function map_tile(x,y,tile_num){
 //---------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------Cord Viewer + Terminal
 var cords = true;
-var terminal = false;
+var terminal = true;
 var info = document.getElementById('info');
 var mouse = topLog;
 
@@ -455,10 +455,8 @@ function keyDownHandler(e){
     case 220:
       if (terminal === false){
   			terminal = true;
-        document.getElementById('terminal').hidden = false;
   		}else{
   			terminal = false;
-        document.getElementById('terminal').hidden = true;
   		}
     break;
     case 32:
@@ -1205,7 +1203,11 @@ function on_frame(){
 
   }
 
-
+  if(terminal){
+    document.getElementById('terminal').hidden = false;
+  }else{
+    document.getElementById('terminal').hidden = true;
+  }
 
   for (var i = 0; i < save.Players.length; i++) {
     if(!save.Players[i].Ch_Location){
