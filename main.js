@@ -11,7 +11,9 @@ var topLog = {}
 var bottom = {}
 
 /*
-t_l
+treTop
+t_hig
+decor
 */
 //---------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------
@@ -37,14 +39,14 @@ var player_page = 0;
 var selected_player = 0;
 var selected_page = "Main";
 var selected_tile = 50;
-var draw = {};
+var draw = topLog;
 
 var button_bar = true;
 var editing = false;
 var removing = false;
 var prefix = '';
 
-var move = {};
+var move = bottom;
 move.moving = false;
 move.player_to_move = 0;
 move.from_tile = 0;
@@ -111,11 +113,11 @@ var canvas2 = document.getElementById("map");
 var map = canvas2.getContext("2d");
 
 function successFunc(data) {
-	var strips = JSON.parse(data);
-	var output = '';
-	for(var i = 0; i < strips.length; i++){
-		output += JSON.stringify(strips[i]);
-	}
+	//var strips = JSON.parse(data);
+	//var output = '';
+	//for(var i = 0; i < strips.length; i++){
+	//	output += JSON.stringify(strips[i]);
+	//}
 	alert(JSON.stringify(output));
 }
 
@@ -138,7 +140,7 @@ function pick_start(){
 }
 
 function remove_object(input_array,item_to_remove){
-  var new_array = [];
+  var new_array = t_l;
   for (var i = 0; i < input_array.length; i++) {
     if (i != item_to_remove) {
       new_array.push(input_array[i]);
@@ -419,7 +421,7 @@ function map_tile(x,y,tile_num){
 //---------------------------------------------------------------------------------------------------------------Cord Viewer + Terminal
 var cords = true;
 var info = document.getElementById('info');
-var mouse = {};
+var mouse = topLog;
 
 function tellPos(p){
 	mouse.X = p.pageX;
@@ -432,7 +434,7 @@ function tellPos(p){
 	}
 }
 
-var command_log = [];
+var command_log = t_md;
 function keyDownHandler(e){
   switch (e.keyCode) {
     case 67:
@@ -962,7 +964,7 @@ function view(type,extra){
 function add(type){
 	var add;
 	var form = {Item: "empty", Weight: 0, Count: 0, AvWorth: 0, Desc: ""};
-	var form2 = {};
+	var form2 = bottom;
 	prefix = 'Player ('+save.Players[selected_player].Player+') Adding ';
 	if(!confirm('Player ('+save.Players[selected_player].Player+') Add Item?')){
 		type='';
