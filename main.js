@@ -111,10 +111,18 @@ var canvas2 = document.getElementById("map");
 var map = canvas2.getContext("2d");
 
 function successFunc(data) {
-	alert(JSON.stringify(data));
+	var strips = JSON.parse(data);
+	var output = '';
+	for(var i = 0; i < strips.length; i++){
+		output += JSON.stringify(strips[i]);
+	}
+	alert(JSON.stringify(output));
 }
 
-Sheetsu.read("https://sheetsu.com/apis/v1.0su/c7ff6b959a92",1,successFunc);
+var search_querry = {
+	update: 1
+};
+Sheetsu.read("https://sheetsu.com/apis/v1.0su/c7ff6b959a92",{search: search_querry},successFunc);
 
 function pick_start(){
   var test = random(123,676);
